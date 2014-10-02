@@ -123,9 +123,8 @@ IF /I %EXO_DEBUG% EQU true (
 )
 
 IF /I %EXO_DEV% EQU true (
-  SET CATALINA_OPTS=%CATALINA_OPTS% -Dorg.exoplatform.container.configuration.debug
-  SET CATALINA_OPTS=%CATALINA_OPTS% -Dexo.product.developing=true
-  SET CATALINA_OPTS=%CATALINA_OPTS% -Dignore.unregistered.webapp=false
+  REM # See http://stackoverflow.com/a/14190037
+  SET CATALINA_OPTS=%CATALINA_OPTS% -Dorg.exoplatform.container.configuration.debug -Dexo.product.developing=true -Dignore.unregistered.webapp=false
 )
 
 REM # JCR session leak detector
